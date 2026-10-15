@@ -1,0 +1,6 @@
+export LAB_SUFFIX="$(openssl rand -hex 4)"
+export LAB_RG="rg-cea-storage-${LAB_SUFFIX}"
+export LAB_STORAGE="stcea${LAB_SUFFIX}"
+export LAB_CONTAINER="documents"
+export LAB_LOCATION="italynorth"
+export LAB_DELETE_AFTER="$(date -u -d '+1 day' +%F)"
