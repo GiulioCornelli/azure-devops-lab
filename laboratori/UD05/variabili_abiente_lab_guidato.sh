@@ -1,0 +1,5 @@
+export LAB_SUFFIX="$(openssl rand -hex 3)"
+export LAB_RG="rg-cea-network-${LAB_SUFFIX}"
+export LAB_VNET="vnet-cea-${LAB_SUFFIX}"
+export LAB_NSG="nsg-data-${LAB_SUFFIX}"
+export LAB_LOCATION="italynorth"
