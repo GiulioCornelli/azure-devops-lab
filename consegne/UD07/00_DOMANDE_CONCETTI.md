@@ -17,7 +17,7 @@ I cmdlet restituiscono oggetti con proprietà, non testo: con $rg = Get-AzResour
 ## 4.
 Che cosa significa che una procedura amministrativa è idempotente?
 **Risposta:**
-Che puoi rieguirla più volte senza paura: rieseguire la procedura porta sempre allo stato desiderato senza produrre effetti indesiderati (es. verifica prima se il Resource Group esiste, e crealo solo se non esiste).
+Che puoi rieguirla più volte senza paura: rieseguire la procedura porta sempre allo stato risultato senza produrre effetti indesiderati (es. verifica prima se il Resource Group esiste, e crealo solo se non esiste).
 
 ## 5.
 Distingui Activity Log, Metrics e Logs.
