@@ -33,36 +33,35 @@
 
 ## Conflitto locale
 
-
-- branch A:
-- branch B:
-- file:
-- marker osservati:
-- contenuto finale scelto:
-- commit risoluzione:
-- cleanup completato:
+- branch A: `lab/conflict-a` (commit `5cef040`, `PORT=9000`), creata da `lab/conflict-base`
+- branch B: `lab/conflict-b` (commit `58ad449`, `PORT=7000`), creata dalla stessa base `lab/conflict-base` (commit `83c8e79`, `PORT=8000`)
+- file: `ud08-conflict.txt`
+- marker osservati: `<<<<<<< HEAD`, `=======`, `>>>>>>> lab/conflict-a`, con `PORT=7000` e `PORT=9000` ai due lati: la stessa riga era stata modificata in modo diverso
+- contenuto finale scelto: una sola riga `PORT=8000`, il valore richiesto dall'esercizio (non una delle due versioni in conflitto)
+- commit risoluzione: `lab: resolve port conflict` (`797eebe`, merge su `lab/conflict-b`)
+- cleanup completato: sì, tornato su `main` ed eliminate le tre branch locali `lab/conflict-a`, `lab/conflict-b` e `lab/conflict-base`; `main` non contiene `ud08-conflict.txt`
 
 ## Catalogo prodotti
 
-- server avviato:
-- `/health`:
-- `/api/products`:
-- `/api/products/P001`:
-- `/api/products/XXX`:
-- frontend browser:
-- prodotti restituiti:
-- prodotto LOW:
+- server avviato: `python3 server.py` da `laboratori/UD08/app/catalogo-prodotti`; messaggio «Catalogo prodotti in ascolto su http://127.0.0.1:8000»
+- `/health`: HTTP 200, `{"status": "ok", "service": "catalogo-prodotti", "version": "1.0"}`
+- `/api/products`: HTTP 200, `count = 4`
+- `/api/products/P001`: HTTP 200, Notebook Pro 14, prezzo 1299.0, stock 8
+- `/api/products/XXX`: HTTP 404, `{"error": "product_not_found", "product_id": "XXX"}`; atteso, perché il prodotto non esiste
+- frontend browser: `http://127.0.0.1:8000/` risponde 200 e la pagina carica i prodotti con `fetch("/api/products")`
+- prodotti restituiti: 4 (P001 Notebook Pro 14, P002 Monitor 27 UHD, P003 Dock USB-C, P004 Keyboard Business)
+- prodotto LOW: P002 (stock 4) e P004 (stock 2), perché `stock <= low_stock_threshold` (5); P001 e P003 sono OK
 
 ## Architettura
 
-- frontend:
-- backend/API:
-- configurazione:
-- dati:
-- endpoint:
+- frontend: `static/index.html`, pagina servita dal server che chiama l'API dal browser
+- backend/API: `server.py`, server HTTP Python (`ThreadingHTTPServer`) che serve l'API e i file statici, e calcola `stock_status`
+- configurazione: `config.json` (host `127.0.0.1`, porta `8000`, prefisso API `/api`, soglia stock basso `5`)
+- dati: `data/products.json`, elenco di 4 prodotti (id, nome, categoria, prezzo, stock)
+- endpoint: `GET /health`, `GET /api/products`, `GET /api/products/{id}` (404 se non esiste)
 
 ## Baseline Git
 
-- commit:
-- push/PR:
-- stato finale main:
+- commit: `5d1573f` «feat: add local product catalog», che aggiunge `laboratori/UD08/app/catalogo-prodotti` (5 file)
+- push/PR: non ancora eseguiti, `main` è avanti di 2 commit rispetto a `origin/main`
+- stato finale main: working tree pulito, `main` locale su `5d1573f`
