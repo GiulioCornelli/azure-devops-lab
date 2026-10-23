@@ -2,16 +2,16 @@
 
 ## Preflight
 
-- `docker version`:
-- `docker compose version`:
-- daemon:
+- `docker version`: `29.9.2`
+- `docker compose version`:`v5.6.1`
+- daemon: 
 - WSL2:
 - RESULT:
 
 ## Build backend
 
-- image:
-- tag:
+- image: `catalog-backend`
+- tag: `:ud10`
 - build context:
 - Dockerfile:
 - layer/history osservati:
