@@ -6,6 +6,7 @@ services:
     image: catalog-backend:ud10
     environment:
       APP_PORT: "8000"
+      APP_ENV: "local-docker"
       LOW_STOCK_THRESHOLD: "5"
       RUNTIME_DIR: "/runtime"
     volumes:
