@@ -1,0 +1,6 @@
+export LAB_LOCATION="westeurope"
+export LAB_RG="rg-ud11-containers"
+export ACA_ENV="acaenv-ud11"
+export ACA_APP="catalog-api-ud11"
+export IMAGE_REPO="catalog-backend"
+export ACR="acr$(date +%s)ud11"
