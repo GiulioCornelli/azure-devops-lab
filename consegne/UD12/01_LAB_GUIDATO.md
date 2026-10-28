@@ -10,8 +10,8 @@
 
 ## Azure
 
-- subscription verificata: Azure subscription 1 (giulio.cornelli05@gmail.com)
-- identità verificata: giulio.cornelli05@gmail.com
+- subscription verificata: Azure subscription 1 (giulio.cornelli********)
+- identità verificata: giulio.cornelli********
 
 ## Bicep
 
